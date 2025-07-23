@@ -5,3 +5,4 @@ streamlit-folium
 Pillow
 requests
 beautifulsoup4
+altair==4.0
