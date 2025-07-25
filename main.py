@@ -7,6 +7,7 @@ import os
 
 import base64
 from io import BytesIO
+from cop import interactive_plot_dashboard
 
 def img_to_base64(img):
     buf = BytesIO()
@@ -108,3 +109,9 @@ with col2:
                 st.warning("⚠️ No layout image found for this circuit.")
 
 
+st.title("Tyre Compound Effectiveness vs. Driver Aggression")
+
+# 🔹 Read CSV only here
+df = pd.read_csv("Data/cleaned_pitstop_data.csv")  # update the correct relative path
+
+interactive_plot_dashboard(df)
