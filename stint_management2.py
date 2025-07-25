@@ -31,20 +31,28 @@ constructor_colors = {
     'Toro Rosso': '#1E41FF'
 }
 
-# Sidebar filters
-with st.sidebar:
-    st.markdown("### Filters")
+st.markdown("### Filters")
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
     selected_season = st.selectbox("Season", sorted(df['Season'].unique()))
-    filtered_by_season = df[df['Season'] == selected_season]
 
+filtered_by_season = df[df['Season'] == selected_season]
+
+with col2:
     selected_round = st.selectbox("Round", sorted(filtered_by_season['Round'].unique()))
-    selected_race_df = filtered_by_season[filtered_by_season['Round'] == selected_round]
 
-    available_drivers = sorted(selected_race_df['Driver'].unique())
+selected_race_df = filtered_by_season[filtered_by_season['Round'] == selected_round]
+
+available_drivers = sorted(selected_race_df['Driver'].unique())
+with col3:
     selected_driver = st.selectbox("Driver", ["All"] + available_drivers)
 
-    available_teams = sorted(selected_race_df['Constructor'].unique())
+available_teams = sorted(selected_race_df['Constructor'].unique())
+with col4:
     selected_team = st.selectbox("Constructor", ["All"] + available_teams)
+
 
 # Apply filters
 filtered = selected_race_df.copy()
