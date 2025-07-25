@@ -3,6 +3,7 @@ pandas
 folium
 streamlit-folium
 Pillow
+seaborn
 requests
 beautifulsoup4
 altair==4.0

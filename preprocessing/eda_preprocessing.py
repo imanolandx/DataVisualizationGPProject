@@ -39,10 +39,13 @@ if 'Pit_Time' in df.columns:
     except Exception as e:
         print(f"An error occurred while converting: {e}")
 
+df['Driver'].replace(to_replace=r'Kimi RÃƒÂ¤ikkÃƒÂ¶nen', value='Kimi Raikkonen')
+df['Driver'].replace(to_replace=r'Nico HÃƒÂ¼lkenberg', value= 'Nico Hulkenberg')
+df['Driver'].replace(to_replace=r'Sergio PÃƒÂ©rez', value= 'Sergio Perez')
 # Export cleaned data
 try:
     print("Writing processed data to csv...")
-    df_cleaned.to_csv("./Data/cleaned_pitstop_data.csv", index=False)
+    df_cleaned.to_csv("./Data/cleaned_pitstop_data2.csv", index=False)
     print("Successfully exported processed data.")
 except Exception as e:
     print(f"Error occurred: {e}")
